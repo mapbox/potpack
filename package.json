@@ -43,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/mapbox/potpack/issues"
   },
-  "homepage": "https://mapbox.github.io/potpack/demo.html",
+  "homepage": "https://mapbox.github.io/potpack/",
   "devDependencies": {
     "eslint": "^5.4.0",
     "eslint-config-mourner": "^2.0.3",

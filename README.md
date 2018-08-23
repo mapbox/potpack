@@ -10,7 +10,7 @@ A variation of algorithms used in
 which are in turn based on
 [this article by Blackpawn](http://blackpawn.com/texts/lightmaps/default.html).
 
-## [Demo](https://mapbox.github.io/potpack/demo.html)
+## [Demo](https://mapbox.github.io/potpack/)
 
 ## Example usage
 
