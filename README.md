@@ -32,3 +32,21 @@ const {w, h, fill} = potpack(boxes);
 boxes[0]; // {w: 300, h: 50,  x: 100, y: 0}
 boxes[1]; // {w: 100, h: 200, x: 0,   y: 0}
 ```
+
+## Install
+
+Install with NPM (`npm install potpack`) or Yarn (`yarn add potpack`), then:
+
+```js
+// import as an ES module
+import potpack from 'potpack';
+
+// or require in Node / Browserify
+const potpack = require('potpack');
+```
+
+Or use a browser build directly:
+
+```html
+<script src="https://unpkg.com/potpack@1.0.0/index.js"></script>
+```
