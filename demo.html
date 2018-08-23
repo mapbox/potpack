@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+    body { margin: 0; font: 16px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; }
+    h1 { font-size: 32px; font-weight: normal; }
+    p { margin: 0 0 10px; }
+    #info { color: #999; }
+    #info em { font-style: normal; color: #555; }
+    #container { max-width: 580px; }
+    #canvas { border: 1px solid #ccc; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+<div id="container">
+    <h1>potpack demo</h1>
+    <p>Potpack is a tiny and fast JavaScript library for packing boxes of varying size into a near-square container,
+    which is useful for generating CSS sprites and WebGL textures. <strong>GitHub</strong>: <a href="https://github.com/mapbox/potpack">mapbox/potpack</a></p>
+    <p><span id="info"></span> <button id="regenerate">Regenerate</button></p>
+    <canvas id="canvas"></canvas>
+</div>
+
+<script type="module">
+    import potpack from './index.mjs';
+
+    update();
+    document.getElementById('regenerate').onclick = update;
+
+    function update() {
+        let boxes = [];
+        for (let i = Math.random() * 20; i >= 0; i--) boxes.push({w: 100, h: 100});
+        for (let i = Math.random() * 10; i >= 0; i--) boxes.push({w: 60, h: 60});
+        for (let i = Math.random() * 40; i >= 0; i--) boxes.push({w: 50, h: 20});
+        for (let i = 50 + Math.random() * 50; i >= 0; i--) boxes.push({w: 20, h: 50});
+        if (Math.random() > 0.5) boxes.push({w: 250, h: 250});
+        if (Math.random() > 0.5) boxes.push({w: 250, h: 100});
+        if (Math.random() > 0.5) boxes.push({w: 100, h: 250});
+        if (Math.random() > 0.5) boxes.push({w: 400, h: 80});
+        if (Math.random() > 0.5) boxes.push({w: 80, h: 400});
+        for (let i = 300 + Math.random() * 200; i >= 0; i--) boxes.push({w: 10, h: 10});
+        for (let i = 500 + Math.random() * 500; i >= 0; i--) boxes.push({w: 5, h: 5});
+
+        const now = performance.now();
+        const {w, h, fill} = potpack(boxes);
+        const time = performance.now() - now;
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const cw = 580;
+        const ch = cw * h / w;
+
+        canvas.width = cw * 2;
+        canvas.height = ch * 2;
+        canvas.style.width = cw + 'px';
+        canvas.style.height = ch + 'px';
+        ctx.scale(2, 2);
+
+        const r = cw / w;
+
+        ctx.lineWidth = 0.5;
+        for (const box of boxes) {
+            ctx.beginPath();
+            ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            ctx.rect(box.x * r, box.y * r, box.w * r, box.h * r);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        document.getElementById('info').innerHTML = `Packed <em>${boxes.length}</em> boxes in <em>${Math.round(100 * time) / 100}</em>ms. Utilization: <em>${(Math.round(10000 * fill) / 100)}%</em>. Size: <em>${w}x${h}</em>`;
+    }
+</script>
+</body>
+</html>
