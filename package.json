@@ -9,9 +9,11 @@
     "index.js"
   ],
   "scripts": {
-    "test": "eslint index.mjs",
+    "pretest": "eslint index.mjs",
+    "test": "tape -r esm test.js",
     "build": "rollup -c",
-    "start": "rollup -w"
+    "start": "rollup -w",
+    "prepublishOnly": "npm run build"
   },
   "eslintConfig": {
     "extends": "mourner",
@@ -43,7 +45,9 @@
   "devDependencies": {
     "eslint": "^5.4.0",
     "eslint-config-mourner": "^2.0.3",
+    "esm": "^3.0.80",
     "rollup": "^0.64.1",
-    "rollup-plugin-buble": "^0.19.2"
+    "rollup-plugin-buble": "^0.19.2",
+    "tape": "^4.9.1"
   }
 }

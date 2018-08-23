@@ -18,8 +18,8 @@ which are in turn based on
 import potpack from 'potpack';
 
 const boxes = [
-    {w: 100, h: 200},
     {w: 300, h: 50},
+    {w: 100, h: 200},
     ...
 ];
 
@@ -27,7 +27,8 @@ const {w, h, fill} = potpack(boxes);
 // w and h are resulting container's width and height;
 // fill is the space utilization value (0 to 1), higher is better
 
-// box objects are augmented with x, y positions on the layout:
-boxes[0]; // {w: 100, h: 200, x: 0,   y: 0}
-boxes[1]; // {w: 300, h: 50,  x: 100, y: 0}
+// potpack mutates the boxes array: it's sorted by height,
+// and box objects are augmented with x, y coordinates:
+boxes[0]; // {w: 300, h: 50,  x: 100, y: 0}
+boxes[1]; // {w: 100, h: 200, x: 0,   y: 0}
 ```
