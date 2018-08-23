@@ -39,6 +39,7 @@ export default function potpack(boxes) {
             // |_______________|
             box.x = space.x;
             box.y = space.y;
+
             height = Math.max(height, box.y + box.h);
             width = Math.max(width, box.x + box.w);
 
