@@ -4,6 +4,8 @@
   "description": "A tiny library for packing 2D rectangles (for sprite layouts)",
   "main": "index",
   "module": "index.mjs",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
   "files": [
     "index.mjs",
     "index.js"
