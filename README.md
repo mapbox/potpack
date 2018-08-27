@@ -48,5 +48,5 @@ const potpack = require('potpack');
 Or use a browser build directly:
 
 ```html
-<script src="https://unpkg.com/potpack@1.0.0/index.js"></script>
+<script src="https://unpkg.com/potpack@1.0.1/index.js"></script>
 ```
