@@ -42,7 +42,7 @@
         for (let i = 500 + Math.random() * 500; i >= 0; i--) boxes.push({w: 5, h: 5});
 
         const now = performance.now();
-        const {w, h, fill} = potpack(boxes);
+        const {w, h, fill} = potpack(boxes, false); // if set to true, the returned canvas size will be in power of 2
         const time = performance.now() - now;
 
         const canvas = document.getElementById('canvas');
