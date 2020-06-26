@@ -99,10 +99,16 @@ export default function potpack(boxes, powerOf2 = false) {
 		}
 	}
 
-	return {
-		w: nextPow2(width), // container width
-		h: nextPow2(height) // container height
-	};
+        if (powerOf2)
+	        return {
+		        w: nextPow2(width), // container width
+		        h: nextPow2(height) // container height
+	        }
+        else 
+                return {
+		        w: width, // container width
+		        h: height // container height
+	        }
 }
 
 const nextPow2 = v => {
