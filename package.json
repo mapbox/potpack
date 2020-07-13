@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "pretest": "eslint index.mjs test.mjs bench.mjs",
-    "test": "tape -r esm test.js",
+    "test": "node -r esm test.mjs",
     "bench": "node -r esm bench.mjs",
     "build": "rollup -c",
     "start": "rollup -w",
