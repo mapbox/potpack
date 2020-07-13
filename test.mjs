@@ -1,6 +1,6 @@
 
 import potpack from './index.mjs';
-import {test} from 'tape';
+import test from 'tape';
 
 test('packs rectangles properly', (t) => {
     const boxes = [];
