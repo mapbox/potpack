@@ -1,6 +1,6 @@
 {
   "name": "potpack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny library for packing 2D rectangles (for sprite layouts)",
   "main": "index",
   "module": "index.mjs",
