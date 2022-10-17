@@ -1,7 +1,7 @@
 
-import ShelfPack from 'shelf-pack';
+import ShelfPack from '@mapbox/shelf-pack';
 import binpack from 'bin-pack';
-import potpack from './index.mjs';
+import potpack from './index.js';
 
 const N = 10000;
 

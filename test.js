@@ -1,5 +1,5 @@
 
-import potpack from './index.mjs';
+import potpack from './index.js';
 import test from 'tape';
 
 test('packs rectangles properly', (t) => {

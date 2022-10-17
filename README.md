@@ -35,18 +35,19 @@ boxes[1]; // {w: 100, h: 200, x: 0,   y: 0}
 
 ## Install
 
-Install with NPM (`npm install potpack`) or Yarn (`yarn add potpack`), then:
+Install with NPM: `npm install potpack`.
 
-```js
-// import as an ES module
-import potpack from 'potpack';
-
-// or require in Node / Browserify
-const potpack = require('potpack');
-```
-
-Or use a browser build directly:
+Potpack is provided as a ES module, so it's only supported on modern browsers, excluding IE:
 
 ```html
-<script src="https://unpkg.com/potpack@1.0.1/index.js"></script>
+<script type="module">
+import potpack from 'https://cdn.skypack.dev/potpack';
+...
+</script>
+```
+
+In Node, you can't use `require` — only `import` in ESM-capable versions (v12.15+):
+
+```js
+import potpack from 'potpack';
 ```
