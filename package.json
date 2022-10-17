@@ -6,6 +6,7 @@
   "type": "module",
   "exports": "./index.js",
   "types": "index.d.ts",
+  "sideEffects": false,
   "files": [
     "index.js",
     "index.d.ts"
