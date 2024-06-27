@@ -15,9 +15,6 @@
     "pretest": "eslint *.js",
     "test": "node test.js"
   },
-  "eslintConfig": {
-    "extends": "mourner"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mapbox/potpack.git"
@@ -38,8 +35,7 @@
   "devDependencies": {
     "@mapbox/shelf-pack": "^3.2.0",
     "bin-pack": "^1.0.2",
-    "eslint": "^8.25.0",
-    "eslint-config-mourner": "^3.0.0",
-    "tape": "^5.6.1"
+    "eslint": "^9.5.0",
+    "eslint-config-mourner": "^4.0.1"
   }
 }
