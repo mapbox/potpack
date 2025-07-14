@@ -10,8 +10,8 @@ export default function potpack(boxes) {
         maxWidth = Math.max(maxWidth, box.w);
     }
 
-    // sort the boxes for insertion by height, descending
-    boxes.sort((a, b) => b.h - a.h);
+    // sort the boxes for insertion by height (or width if equal), descending
+    boxes.sort((a, b) => b.h - a.h || b.w - a.w);
 
     // aim for a squarish resulting container,
     // slightly adjusted for sub-100% space utilization
