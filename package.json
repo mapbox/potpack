@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "pretest": "eslint *.js",
-    "test": "node test.js"
+    "test": "tsc && node test.js",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,8 @@
   "devDependencies": {
     "@mapbox/shelf-pack": "^3.2.0",
     "bin-pack": "^1.0.2",
-    "eslint": "^9.5.0",
-    "eslint-config-mourner": "^4.0.1"
+    "eslint": "^9.31.0",
+    "eslint-config-mourner": "^4.0.2",
+    "typescript": "^5.8.3"
   }
 }

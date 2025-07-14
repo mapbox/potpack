@@ -1,4 +1,27 @@
+/**
+ * @typedef {Object} PotpackBox
+ * @property {number} w Box width.
+ * @property {number} h Box height.
+ * @property {number} [x] X coordinate in the resulting container.
+ * @property {number} [y] Y coordinate in the resulting container.
+ */
 
+/**
+ * @typedef {Object} PotpackStats
+ * @property {number} w Width of the resulting container.
+ * @property {number} h Height of the resulting container.
+ * @property {number} fill The space utilization value (0 to 1). Higher is better.
+ */
+
+/**
+ * Packs 2D rectangles into a near-square container.
+ *
+ * Mutates the {@link boxes} array: it's sorted (by height/width),
+ * and box objects are augmented with `x`, `y` coordinates.
+ *
+ * @param {PotpackBox[]} boxes
+ * @return {PotpackStats}
+ */
 export default function potpack(boxes) {
 
     // calculate total box area and maximum box width
@@ -46,7 +69,7 @@ export default function potpack(boxes) {
             if (box.w === space.w && box.h === space.h) {
                 // space matches the box exactly; remove it
                 const last = spaces.pop();
-                if (i < spaces.length) spaces[i] = last;
+                if (last && i < spaces.length) spaces[i] = last;
 
             } else if (box.h === space.h) {
                 // space matches the box height; update it accordingly
